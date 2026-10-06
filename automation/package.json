@@ -16,7 +16,7 @@
     "automation",
     "gherkin"
   ],
-  "author": "Quality Assurance Team",
+  "author": "Victor Cezari Nascimento",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.55.0"
