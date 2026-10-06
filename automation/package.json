@@ -1,0 +1,24 @@
+{
+  "name": "verzel-store-qa-automation",
+  "version": "1.0.0",
+  "description": "Automação de testes em Playwright para o desafio técnico Verzel Store",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [
+    "qa",
+    "testing",
+    "playwright",
+    "automation",
+    "gherkin"
+  ],
+  "author": "Quality Assurance Team",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  }
+}
