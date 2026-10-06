@@ -1,17 +1,17 @@
 const { test, expect } = require('@playwright/test');
 
 /**
- * Integration test that reproduces BUG‑02 (API accepts quantity > 5).
- * It sends a POST request to the `/api/pedidos` endpoint with an invalid quantity
- * and verifies that the response contains the expected error code and message.
+ * Teste de integração que reproduz o BUG-02 (API aceita quantidade maior que 5).
+ * Envia uma requisição POST ao endpoint `/api/pedidos` com uma quantidade inválida
+ * e verifica se a resposta contém o código e a mensagem de erro esperados.
  */
 test('test_bug2_evidence', async ({ request }) => {
-  // Payload that triggers the bug (6 unidades do mesmo produto)
+  // Payload que reproduz o bug (6 unidades do mesmo produto)
   const payload = {
     itens: [
       {
         produtoId: 'JAQUETA-001',
-        quantidade: 6, // exceeds the allowed maximum of 5
+        quantidade: 6, // ultrapassa o limite máximo permitido de 5 unidades
         preco: 229.90
       }
     ],
@@ -28,11 +28,11 @@ test('test_bug2_evidence', async ({ request }) => {
     headers: { 'Content-Type': 'application/json' }
   });
 
-  // Log the raw JSON for evidence collection
+  // Exibe o JSON bruto da resposta para fins de coleta de evidência
   const body = await response.json();
-  console.log('Response body:', JSON.stringify(body, null, 2));
+  console.log('Corpo da resposta:', JSON.stringify(body, null, 2));
 
-  // The API should reject the request with HTTP 422 and a specific error code
+  // A API deve rejeitar a requisição com HTTP 422 e um código de erro específico
   expect(response.status()).toBe(422);
   expect(body?.erro?.codigo).toBe('QUANTIDADE_MAXIMA_EXCEDIDA');
 });
