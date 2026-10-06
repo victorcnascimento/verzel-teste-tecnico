@@ -37,8 +37,8 @@ Contexto:
   Dado que o cliente acessa a Verzel Store
   E possui itens adicionados ao carrinho de compras
 
-@positivo @smoke @CA01
-Cenário: Aplicação com sucesso do cupom válido BEMVINDO10
+**@positivo @smoke @CA01**
+**Cenário - Aplicação com sucesso do cupom válido BEMVINDO10:**
   Dado que o carrinho possui o produto "Mochila Urbana 20L" (R$ 100,00) na quantidade de 1 unidade
   Quando o cliente informa o cupom "BEMVINDO10" e clica em aplicar
   Então o sistema deve exibir a mensagem de sucesso "Cupom aplicado: 10% de desconto nos produtos."
@@ -46,8 +46,8 @@ Cenário: Aplicação com sucesso do cupom válido BEMVINDO10
   E o subtotal permanece em "R$ 100,00"
   E o total a pagar deve refletir a dedução correta do desconto
 
-@positivo @CA02
-Esquema do Cenário: Aplicação de cupom válido com variações de caixa e espaços em branco
+**@positivo @CA02**
+**Cenário - Esquema do Cenário: Aplicação de cupom válido com variações de caixa e espaços em branco:**
   Dado que o carrinho possui um subtotal de R$ 100,00
   Quando o cliente informa o cupom <codigo_cupom> e clica em aplicar
   Então o sistema deve aplicar o cupom com sucesso
@@ -61,29 +61,29 @@ Esquema do Cenário: Aplicação de cupom válido com variações de caixa e esp
     | "BEMVINDO10 "      | Espaço em branco no final           |
     | "  bemvindo10   "  | Espaços nas extremidades e minúsculo |
 
-@negativo @CA03
-Cenário: Tentativa de aplicação de cupom inexistente
+**@negativo @CA03**
+**Cenário - Tentativa de aplicação de cupom inexistente:**
   Quando o cliente informa o cupom "PROMO2026INEXISTENTE" e clica em aplicar
   Então o sistema deve exibir a mensagem de erro "Cupom inválido."
   E nenhum desconto deve ser aplicado ao carrinho
   E o subtotal e o frete devem permanecer inalterados
 
-@negativo @CA04
-Cenário: Tentativa de aplicação de cupom expirado
+**@negativo @CA04**
+**Cenário - Tentativa de aplicação de cupom expirado:**
   Quando o cliente informa o cupom "VERAO2026" e clica em aplicar
   Então o sistema deve exibir a mensagem de erro "Cupom expirado."
   E nenhum valor de desconto deve ser concedido
   E o valor total a pagar não deve sofrer alterações
 
-@positivo @fluxo_alternativo @CA05
-Cenário: Substituição de cupom aplicado
+**@positivo @fluxo_alternativo @CA05**
+**Cenário - Substituição de cupom aplicado:**
   Dado que o cupom "BEMVINDO10" já está aplicado no carrinho
   Quando o cliente clica na opção de remover o cupom atual
   Então o cupom deve ser desvinculado e o desconto zerado
   E o cliente deve conseguir inserir e aplicar um novo cupom com sucesso
 
-@negativo @regra_de_negocio @CA05
-Cenário: Impedir aplicação simultânea de múltiplos cupons
+**@negativo @regra_de_negocio @CA05**
+**Cenário - Impedir aplicação simultânea de múltiplos cupons:**
   Dado que o cupom "BEMVINDO10" já se encontra ativo no carrinho
   Quando o cliente tenta aplicar um segundo cupom simultâneo
   Então o sistema não deve permitir a cumulatividade de descontos mantendo apenas um cupom ativo
@@ -98,23 +98,23 @@ Para planejar minhas compras e aproveitar o benefício de isenção de frete
 Contexto:
   Dado que o cliente está navegando na Verzel Store
 
-@positivo @borda @CA06
-Cenário: Isenção de frete para subtotal exatamente igual a R$ 200,00
+**@positivo @borda @CA06**
+**Cenário - Isenção de frete para subtotal exatamente igual a R$ 200,00:**
   Dado que o carrinho contém 2 unidades do produto "Mochila Urbana 20L" (R$ 100,00 cada)
   Quando o cliente visualiza o resumo do pedido
   Então o subtotal deve ser "R$ 200,00"
   E o frete deve ser calculado como "R$ 0,00" (Frete Grátis)
   E o valor faltante para frete grátis deve ser "R$ 0,00"
 
-@positivo @CA06
-Cenário: Isenção de frete para subtotal superior a R$ 200,00
+**@positivo @CA06**
+**Cenário - Isenção de frete para subtotal superior a R$ 200,00:**
   Dado que o carrinho contém 1 unidade de "Jaqueta Corta-Vento" (R$ 229,90)
   Quando o cliente visualiza o resumo do pedido
   Então o subtotal deve ser "R$ 229,90"
   E o frete deve ser gratuito ("R$ 0,00")
 
-@negativo @borda @CA07
-Cenário: Cobrança de frete fixo para subtotal inferior a R$ 200,00
+**@negativo @borda @CA07**
+**Cenário - Cobrança de frete fixo para subtotal inferior a R$ 200,00:**
   Dado que o carrinho contém 1 unidade de "Tênis Casual Urbano" (R$ 189,90)
   Quando o cliente visualiza o resumo do pedido
   Então o subtotal deve ser "R$ 189,90"
@@ -122,16 +122,16 @@ Cenário: Cobrança de frete fixo para subtotal inferior a R$ 200,00
   E o carrinho deve exibir que faltam "R$ 10,10" para alcançar o frete grátis
   E o total do pedido deve ser a soma de "R$ 189,90" + "R$ 19,90" = "R$ 209,80"
 
-@positivo @regra_critica @CA08
-Cenário: Manutenção do frete grátis quando o subtotal original atinge R$ 200,00 mesmo com desconto
+**@positivo @regra_critica @CA08**
+**Cenário - Manutenção do frete grátis quando o subtotal original atinge R$ 200,00 mesmo com desconto:**
   Dado que o carrinho possui 2 unidades de "Mochila Urbana 20L" totalizando subtotal de "R$ 200,00"
   Quando o cliente aplica o cupom "BEMVINDO10" recebendo R$ 20,00 de desconto
   Então o subtotal dos produtos permanece sendo considerado "R$ 200,00" para fins de frete
   E o frete deve permanecer gratuito ("R$ 0,00") mesmo com o total final sendo R$ 180,00
   E a mensagem de frete grátis atingido deve ser mantida
 
-@positivo @regra_critica @CA09
-Cenário: Não incidência de desconto de cupom sobre o valor do frete
+**@positivo @regra_critica @CA09**
+**Cenário - Não incidência de desconto de cupom sobre o valor do frete:**
   Dado que o carrinho possui 1 unidade de "Mochila Urbana 20L" (subtotal R$ 100,00)
   E o frete aplicável é de "R$ 19,90"
   Quando o cliente aplica o cupom "BEMVINDO10"
@@ -149,19 +149,19 @@ Para garantir disponibilidade e integridade das regras comerciais
 Contexto:
   Dado que o cliente está visualizando a listagem ou carrinho de produtos
 
-@positivo @borda @CA10
-Cenário: Seleção do limite máximo permitido de 5 unidades
+**@positivo @borda @CA10**
+**Cenário - Seleção do limite máximo permitido de 5 unidades:**
   Quando o cliente define a quantidade de um produto para 5 unidades no carrinho
   Então o sistema deve permitir a alteração e recalcular o subtotal proporcionalmente
 
-@negativo @borda @CA10
-Cenário: Tentativa de adicionar mais de 5 unidades via interface
+**@negativo @borda @CA10**
+**Cenário - Tentativa de adicionar mais de 5 unidades via interface:**
   Quando o cliente atinge 5 unidades de um determinado produto
   Então o botão de incremento de quantidade deve ser desabilitado ou exibir aviso impeditivo
   E a quantidade no carrinho não deve ultrapassar 5 unidades
 
-@negativo @api @CA10
-Cenário: Envio de quantidade superior a 5 unidades via API
+**@negativo @api @CA10**
+**Cenário - Envio de quantidade superior a 5 unidades via API:**
   Quando uma requisição POST para "/api/carrinho/calcular" ou "/api/pedidos" for enviada com quantidade igual a 6 para um produto
   Então a API deve rejeitar a requisição com status HTTP 422
   E o código de erro retornado deve ser "QUANTIDADE_MAXIMA_EXCEDIDA"
@@ -176,8 +176,8 @@ Para concluir minha compra com pagamento na entrega
 Contexto:
   Dado que o carrinho possui itens válidos
 
-@positivo @smoke
-Cenário: Finalização de pedido com dados válidos e cupom aplicado
+**@positivo @smoke**
+**Cenário - Finalização de pedido com dados válidos e cupom aplicado:**
   Dado que o cliente preenche os dados:
     | Campo | Valor               |
     | Nome  | "Maria Silva"       |
@@ -189,8 +189,8 @@ Cenário: Finalização de pedido com dados válidos e cupom aplicado
   E deve ser retornado um código de pedido no padrão "VZ-XXXXXX"
   E a tela de confirmação deve exibir o resumo detalhado dos valores
 
-@negativo @validacao_campos
-Esquema do Cenário: Validação de campos obrigatórios e formatos na finalização do pedido
+**@negativo @validacao_campos**
+**Cenário - Esquema do Cenário: Validação de campos obrigatórios e formatos na finalização do pedido:**
   Quando o cliente tenta confirmar o pedido informando <nome>, <email> e <cep>
   Então o sistema deve recusar a finalização exibindo aviso de validação
   E a API deve responder com código 422 e erro "DADOS_INVALIDOS"
