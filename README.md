@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Desafio Técnico de QA - Verzel Store
 
 Repositório público com todas as entregas do teste técnico de **Quality Assurance (QA)** para a aplicação **Verzel Store** (Versão 2.3.0 - Card VZS-142: *Aplicação de Cupons de Desconto e Frete Grátis*).
