@@ -115,8 +115,6 @@ npx playwright install chromium
 
 ## 🎯 Cenários Automatizados Implementados
 
-A cobertura de automação passou de **4 para 14 cenários** na suíte principal, além de **1 teste de integração de API** dedicado ao BUG-02.
-
 ### `carrinho_e_pedidos.spec.js` — Suíte Principal (14 cenários)
 
 | # | Cenário | Critério | Evidência gerada |
