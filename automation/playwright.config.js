@@ -10,9 +10,9 @@ module.exports = defineConfig({
   ],
   use: {
     baseURL: 'https://verzel-store.qa-test-verzel-store.workers.dev',
-    trace: 'on-first-retry',
-    screenshot: 'only-on-failure',
-    video: 'retain-on-failure',
+    trace: 'on',
+    screenshot: 'on',
+    video: 'on',
     headless: true,
   },
   projects: [
