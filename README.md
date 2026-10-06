@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Desafio Técnico de QA - Verzel Store
 
 Repositório público com todas as entregas do teste técnico de **Quality Assurance (QA)** para a aplicação **Verzel Store** (Versão 2.3.0 - Card VZS-142: *Aplicação de Cupons de Desconto e Frete Grátis*).
@@ -121,3 +122,4 @@ Os seguintes cenários cobrem os fluxos primordiais exigidos no teste:
    - Adiciona item elegível a frete grátis, valida isenção de frete no carrinho, preenche dados do cliente no checkout e valida geração do código do pedido (`VZ-XXXXXX`).
 4. **Cenário 4 (Bônus): Bloqueio de Quantidade Máxima de 5 Unidades na Interface**
    - Incrementa produto no carrinho até o limite máximo de 5 unidades e valida mensagem impeditiva e estado desabilitado do botão `+`.
+
