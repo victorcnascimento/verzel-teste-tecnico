@@ -3,7 +3,7 @@
 **Projeto:** Verzel Store  
 **Funcionalidade:** Aplicação de Cupom de Desconto e Regra de Frete Grátis  
 **Card / Referência:** VZS-142 (Versão 2.3.0)  
-**Autor:** Quality Assurance Team  
+**Autor:** Victor Cezari Nascimento  
 **Data:** 06/10/2026  
 
 ---

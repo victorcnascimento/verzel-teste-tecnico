@@ -3,7 +3,7 @@
 **Projeto:** Verzel Store  
 **Versão:** 2.3.0 (Card VZS-142)  
 **Ambiente:** https://verzel-store.qa-test-verzel-store.workers.dev/  
-**Responsável QA:** Quality Assurance Team  
+**Responsável QA:** Victor Cezari Nascimento  
 **Data:** 06/10/2026  
 
 ---
